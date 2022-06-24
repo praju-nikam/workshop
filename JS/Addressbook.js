@@ -1,48 +1,38 @@
 class Contact {
+
     get id() {
         return this._id;
     }
+
     set id(id) {
         this._id = id;
     }
-    get firstName() {
-        return this._firstName;
+
+    get name() {
+        return this._name;
     }
-    set firstName(firstName) {
-            let firstNameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
-            if (firstNameRegex.test(firstName)) {
-                this._firstName = firstName;
-            } else {
-                throw 'First Name Invalid';
-            }
+
+    set name(name) {
+        let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
+        if (nameRegex.test(name)) {
+            this._name = name;
+        } else {
+            throw 'Invalid Name';
         }
-        // get lastName() {
-        //     return this._lastName;
-        // }
-        // set lastName(lastName) {
-        //     let lastNameRegex = regExp('^[A-Z]{1}[a-z]{2,}$');
-        //     if (lastNameRegex.test(lastName)) {
-        //         this._lastName = lastName;
-        //     } else {
-        //         throw 'Last Name Invalid';
-        //     }
-        // }
+    }
+
     get address() {
         return this._address;
     }
     set address(address) {
-        let words = address.split(" ");
-        if (words.length > 1) {
-            let addressRegx = RegExp('[A-Z a-z,/0-9] {3,}$');
-            for (const word of words) {
-                if (!addressRegx.test(word))
-                    throw 'Address Invalid ';
-            }
+        let addressRegx = RegExp('[A-Z a-z 0-9 #@/,&] {3,}$');
+        if (addressRegx.test(address)) {
             this._address = address;
         } else {
-            throw 'Address Invalid';
+            throw 'Address is Incorrect';
         }
     }
+
     get city() {
         return this._city;
     }
@@ -59,7 +49,7 @@ class Contact {
         return this._zip;
     }
     set zip(zip) {
-        let zipRegx = RegExp('[0-9]{6}$');
+        let zipRegx = RegExp('^[0-9]{3}\\s{0,1}[0-9]{3}$');
         if (zipRegx.test(zip)) {
             this._zip = zip;
         } else {
@@ -78,24 +68,10 @@ class Contact {
             throw 'Phone number Invalid';
     }
 
-    get email() {
-        return this._email;
-    }
-    set email(email) {
-        let emailRegx = RegExp(' ^ ([a-z A-Z 0-9 _\-\.] + ) @([a-z A-Z 0-9 _\-\.] + )\.([a-z A-Z] { 2, 3 }) $');
-        if (emailRegx.test(email))
-            this._email = email;
-        else
-            throw 'Email Invalid';
-    }
 
     toString() {
-        return "Id = " + this.id + ", FirstName = " + this.firstName + ", LastName = " + this.lastName + ", Address = " + this.address +
-            ", City = " + this.city + ", State = " + this.state + ", Zip = " + this.zip + ", Phone = " + this.phone + ", Email = " + this.email;
+        return "Id = " + this._id + ", FirstName = " + this._firstName + ", Address = " + this._address +
+            ", City = " + this._city + ", State = " + this._state + ", Zip = " + this._zip + ", Phone = " + this._phone;
     }
-
-
-
-
 
 }
