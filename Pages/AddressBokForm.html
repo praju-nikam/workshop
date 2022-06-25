@@ -13,7 +13,8 @@
     <!--  UC-2 -->
     <header class="header-content header">
         <div class="logo-content">
-            <img src="../Assets/logo.png" alt="" class="logo-content" width="40">
+            <a href="../Pages/AddressBookHomePage.html" class="add-button"> <img src="../Assets/logo.png" alt="" class="logo-content" width="70">
+            </a>
             <div>
                 <span class="addr-text">Address</span><br>
                 <span class="addr-text addr-book">Book</span>
@@ -25,7 +26,8 @@
             <div class="form-head-content">
                 <div class="form-head">Person Address Form</div>
                 <div class="form-logo-content">
-                    <img src="../Assets/close.png" style="height: 25px;">
+                    <a href="../Pages/AddressBookHomePage.html" class="add-button"><img src="../Assets/close.png" style="height: 25px;">
+                    </a>
                 </div>
             </div>
 
@@ -83,11 +85,12 @@
                 <div class="oneRow-content">
                     <label class="label text" for="zip">Zip</label>
                     <input class="input" type="text" name="Zip" id="zip" required>
+                    <error-output class="zip-error" for="text"></error-output>
                 </div>
             </div>
             <div class="row-content">
                 <label class="label text" for="phone">Phone Number</label>
-                <input class="input" type="text" name="Phone" id="phone" required>
+                <input class="input" type="number" name="Phone" id="phone" required>
                 <error-output class="phone-error" for="text"></error-output>
             </div>
 
